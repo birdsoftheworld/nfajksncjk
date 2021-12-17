@@ -28,7 +28,7 @@ function update() {
 }
 
 function onKeyDown(e) {
-    event.setCancelled(true);
+    event.preventDefault();
     let keys = { "w": 3, "a": 2, "s": 1, "d": 0 };
     let dir = keys[e.key];
     if(dir != undefined) {
