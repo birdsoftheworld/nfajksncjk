@@ -13,6 +13,8 @@ let state = new GameState(width, height);
 
 function draw() {
     ctx.clearRect(0, 0, cwidth, cheight);
+    ctx.fillStyle = "#222222";
+    ctx.fillRect(0, 0, cwidth, cheight);
     ctx.fillStyle = "red";
     ctx.fillRect(state.foodX * size, state.foodY * size, size, size);
     let segments = state.playerSegments;
@@ -28,8 +30,6 @@ function update() {
 }
 
 function onkeydown(e) {
-    alert(e.key);
-    alert(keys[e.key]);
     //event.preventDefault();
     let keys = { "w": 3, "a": 2, "s": 1, "d": 0 };
     let dir = keys[e.key];
