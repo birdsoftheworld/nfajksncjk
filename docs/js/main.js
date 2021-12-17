@@ -27,16 +27,16 @@ function update() {
     state.movePlayer();
 }
 
-function onKeyDown(e) {
-    event.preventDefault();
+function onkeydown(e) {
+    alert(e.key);
+    alert(keys[e.key]);
+    //event.preventDefault();
     let keys = { "w": 3, "a": 2, "s": 1, "d": 0 };
     let dir = keys[e.key];
     if(dir != undefined) {
         state.playerDir = dir;
     }
-    alert(e.key);
-    alert(keys[e.key]);
 }
 
 window.requestAnimationFrame(draw);
-window.addEventListener("keydown", onKeyDown);
+window.addEventListener("keydown", onkeydown);
