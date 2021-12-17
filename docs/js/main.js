@@ -6,8 +6,8 @@ ctx.imageSmoothingEnabled = false;
 
 let width = 10;
 let height = 10;
-let cwidth = 100;
-let cheight = 100;
+let cwidth = 250;
+let cheight = 250;
 let size = cwidth / width;
 let state = new GameState(width, height);
 
