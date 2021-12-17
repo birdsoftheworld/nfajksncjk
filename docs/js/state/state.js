@@ -11,11 +11,12 @@ class GameState {
         this.width = width;
         this.height = height;
         this.lost = false;
+        this.score = 0;
         this.spawnFood();
     }
 
     gameOver() {
-        alert("you lost.");
+        alert(`Game over. Your score: ${this.score}`);
         this.lost = true;
     }
 
@@ -41,6 +42,7 @@ class GameState {
         if(newX == this.foodX && newY == this.foodY) {
             this.playerLength++;
             this.spawnFood();
+            this.score++;
         } else {
             this.playerSegments.pop();
         }
