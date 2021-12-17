@@ -40,6 +40,7 @@ class GameState {
 
         if(newX == this.foodX && newY == this.foodY) {
             this.playerLength++;
+            this.spawnFood();
         } else {
             this.playerSegments.pop();
         }

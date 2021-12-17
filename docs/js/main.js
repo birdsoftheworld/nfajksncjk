@@ -10,7 +10,7 @@ let cwidth = 250;
 let cheight = 250;
 let size = cwidth / width;
 let state = new GameState(width, height);
-let updateSpeed = 500;
+let updateSpeed = 1000 / 4;
 
 function draw() {
     ctx.clearRect(0, 0, cwidth, cheight);
@@ -19,7 +19,7 @@ function draw() {
     ctx.fillStyle = "red";
     ctx.fillRect(state.foodX * size, state.foodY * size, size, size);
     let segments = state.playerSegments;
-    ctx.fillStyle = "black";
+    ctx.fillStyle = "#7fff00";
     for(let i = 0; i < segments.length; i++) {
         let segment = segments[i];
         ctx.fillRect(segment[0] * size, segment[1] * size, size, size);
