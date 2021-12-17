@@ -10,6 +10,7 @@ let cwidth = 250;
 let cheight = 250;
 let size = cwidth / width;
 let state = new GameState(width, height);
+let updateSpeed = 500;
 
 function draw() {
     ctx.clearRect(0, 0, cwidth, cheight);
@@ -32,8 +33,6 @@ function update() {
 function onkeydown(e) {
     //event.preventDefault();
     let keys = { "w": 3, "a": 2, "s": 1, "d": 0 };
-    alert(e.key);
-    alert(keys[e.key]);
     let dir = keys[e.key];
     if(dir != undefined) {
         state.playerDir = dir;
@@ -42,3 +41,4 @@ function onkeydown(e) {
 
 window.requestAnimationFrame(draw);
 window.addEventListener("keydown", onkeydown);
+window.setInterval(update, updateSpeed);
