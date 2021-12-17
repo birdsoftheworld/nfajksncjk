@@ -24,6 +24,8 @@ function draw() {
         let segment = segments[i];
         ctx.fillRect(segment[0] * size, segment[1] * size, size, size);
     }
+    ctx.fillStyle = "green";
+    ctx.fillRect(state.playerX * size, state.playerY * size, size, size);
 }
 
 function update() {

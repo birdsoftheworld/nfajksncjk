@@ -15,6 +15,7 @@ class GameState {
     }
 
     gameOver() {
+        alert("you lost.");
         this.lost = true;
     }
 
