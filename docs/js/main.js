@@ -10,7 +10,7 @@ let cwidth = 250;
 let cheight = 250;
 let size = cwidth / width;
 let state = new GameState(width, height);
-let updateSpeed = 1000 / 3;
+let updateSpeed = 1000 / 5;
 
 function draw() {
     ctx.clearRect(0, 0, cwidth, cheight);
@@ -39,11 +39,6 @@ function onkeydown(e) {
     if(dir != undefined) {
         event.preventDefault();
         state.playerDir = dir;
-        update();
-
-        // reset time to next frame
-        window.clearInterval(updateInterval);
-        updateInterval = window.setInterval(update, updateSpeed);
     }
 }
 
