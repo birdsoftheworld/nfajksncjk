@@ -58,7 +58,7 @@ function draw() {
     for(let i = 0; i < segments.length; i++) {
         let segment = segments[i];
         let pos = [ segment[0], segment[1] ];
-        ctx.lineTo(segment[0], segment[1]);
+        ctx.lineTo(segment[0] * size, segment[1] * size);
         for(let j = 0; j < 4; j++) {
             pos[0] = pos[0] + directions[j][0];
             pos[1] = pos[1] + directions[j][1];
