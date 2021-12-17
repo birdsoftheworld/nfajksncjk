@@ -60,12 +60,12 @@ function draw() {
         let pos = [ segment[0], segment[1] ];
         ctx.lineTo(segment[0], segment[1]);
         for(let j = 0; j < 4; j++) {
-            pos[0] = pos[0] + size * directions[j][0];
-            pos[1] = pos[1] + size * directions[j][1];
+            pos[0] = pos[0] + directions[j][0];
+            pos[1] = pos[1] + directions[j][1];
             if(tilings[j]) {
-                ctx.lineTo(pos[0], pos[1]);
+                ctx.lineTo(pos[0] * size, pos[1] * size);
             } else {
-                ctx.moveTo(pos[0], pos[1]);
+                ctx.moveTo(pos[0] * size, pos[1] * size);
             }
         }
     }
