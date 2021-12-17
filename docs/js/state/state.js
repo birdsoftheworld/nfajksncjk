@@ -7,7 +7,7 @@ class GameState {
         this.playerX = 1;
         this.playerY = 1;
         this.playerSegments = [];
-        this.playerSegments.push([playerX, playerY]);
+        this.playerSegments.push([this.playerX, this.playerY]);
         this.width = width;
         this.height = height;
         this.lost = false;
