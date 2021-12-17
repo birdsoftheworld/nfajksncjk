@@ -27,6 +27,49 @@ function draw() {
     ctx.fillStyle = "#5fcf00";
     ctx.fillRect(state.playerX * size, state.playerY * size, size, size);
     window.requestAnimationFrame(draw);
+    let tilings = [];
+    let directions = [ [1, 0], [0, 1], [-1, 0], [0, -1] ];
+    for(let i = 0; i < segments.length; i++) {
+        let segment = segments[i];
+        let lines = [ true, true, true, true ];
+        if(i > 0) {
+            let prev = segments[i - 1];
+            let deltaPrev = [ prev[0] - segment[0], prev[1] - segment[1] ];
+            for(let j = 0; j++; j < 4) {
+                if(deltaPrev[0] == directions[j][0] && deltaPrev[1] == directions[j][1]) {
+                    lines[j] = false;
+                }
+            }
+        }
+        if(i < segments.length - 1) {
+            let next = segments[i + 1];
+            let deltaNext = [ next[0] - segment[0], next[1] - segment[1] ];
+            for(let j = 0; j++; j < 4) {
+                if(deltaNext[0] == directions[j][0] && deltaNext[1] == directions[j][1]) {
+                    lines[j] = false;
+                }
+            }
+        }
+        tilings[i] = lines;
+    }
+
+    ctx.strokeStyle = "black";
+    ctx.beginPath();
+    for(let i = 0; i < segments.length; i++) {
+        let segment = segments[i];
+        let pos = [ segment[0], segment[1] ];
+        ctx.lineTo(segment[0], segment[1]);
+        for(let j = 0; j < 4; j++) {
+            pos[0] = pos[0] * directions[j][0];
+            pos[1] = pos[1] * directions[j][1];
+            if(tilings[j]) {
+                ctx.lineTo(pos[0], pos[1]);
+            } else {
+                ctx.moveTo(pos[0], pos[1]);
+            }
+        }
+    }
+    ctx.stroke();
 }
 
 function update() {
