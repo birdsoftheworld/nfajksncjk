@@ -34,14 +34,19 @@ function update() {
 }
 
 function onkeydown(e) {
-    //event.preventDefault();
     let keys = { "w": 3, "a": 2, "s": 1, "d": 0 };
     let dir = keys[e.key];
     if(dir != undefined) {
+        event.preventDefault();
         state.playerDir = dir;
+        update();
+
+        // reset time to next frame
+        window.clearInterval(updateInterval);
+        updateInterval = window.setInterval(update, updateSpeed);
     }
 }
 
 window.requestAnimationFrame(draw);
 window.addEventListener("keydown", onkeydown);
-window.setInterval(update, updateSpeed);
+let updateInterval = window.setInterval(update, updateSpeed);
