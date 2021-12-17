@@ -34,6 +34,8 @@ function onKeyDown(e) {
     if(dir != undefined) {
         state.playerDir = dir;
     }
+    alert(e.key);
+    alert(keys[e.key]);
 }
 
 window.requestAnimationFrame(draw);
