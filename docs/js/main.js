@@ -26,6 +26,7 @@ function draw() {
     }
     ctx.fillStyle = "green";
     ctx.fillRect(state.playerX * size, state.playerY * size, size, size);
+    window.requestAnimationFrame(draw);
 }
 
 function update() {
